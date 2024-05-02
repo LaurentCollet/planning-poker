@@ -94,8 +94,28 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "planning-poker:build:production",
+              "serveTarget": "planning-poker:serve:production"
+            },
+            "development": {
+              "buildTarget": "planning-poker:build:development",
+              "serveTarget": "planning-poker:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
