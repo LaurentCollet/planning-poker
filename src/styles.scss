@@ -1,8 +1,9 @@
 @use '@angular/material' as mat;
+
 @include mat.core();
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-body {
+body, h1, h2, h3, h4 {
   padding: 0;
   margin: 0;
 }
