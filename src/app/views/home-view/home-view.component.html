@@ -1,1 +1,32 @@
-<p>home-view works!</p>
+<div class="container">
+  <h2>Create session</h2>
+  <form class="form" [formGroup]="createSessionForm" (ngSubmit)="createSession()">
+    <mat-form-field>
+      <mat-label>Enter a name for the game</mat-label>
+      <input type="text" matInput formControlName="name">
+      @if (createSessionForm.controls.name.hasError("minlength") && !createSessionForm.controls.name.hasError("required")) {
+        <mat-error class="error">name must be at least 3 characters long</mat-error>
+      } @else if (createSessionForm.controls.name.hasError("required")) {
+        <mat-error class="error">name is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        choose a voting system
+      </mat-label>
+
+      <mat-select formControlName="votingSystem">
+        @for (votingSystem of votingSystems$ |async; track votingSystem.name) {
+          <mat-option [value]="votingSystem">{{ votingSystem.name }}</mat-option>
+        }
+      </mat-select>
+      @if (createSessionForm.controls.votingSystem.hasError("required")) {
+        <mat-error class="error">please select a voting system</mat-error>
+      }
+    </mat-form-field>
+    <div class="buttons">
+      <button mat-raised-button>cancel</button>
+      <button mat-raised-button>create</button>
+    </div>
+  </form>
+</div>
