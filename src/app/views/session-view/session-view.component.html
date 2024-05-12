@@ -1,1 +1,10 @@
-<p>session-view works!</p>
+@if (showModal) {
+  <app-player-info-modal (playerEvent)="createPlayer($event)"></app-player-info-modal>
+} @else {
+  @defer (when session && mainPlayer) {
+    <h1>{{ session.name.toUpperCase() }}</h1>
+    <app-gameboard [players$]="players$" [mainPlayer]="mainPlayer!"></app-gameboard>
+    <app-card-picker [cards]="session.votingSystem.cards" class="voting-system"></app-card-picker>
+  }
+}
+
