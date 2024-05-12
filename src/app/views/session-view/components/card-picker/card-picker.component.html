@@ -1,0 +1,6 @@
+<h3 style="text-align: center">Choose a card matching user story's difficulty</h3>
+<div class="cards">
+  @for (card of cards; track card.value) {
+    <app-card [card]="card"></app-card>
+  }
+</div>
