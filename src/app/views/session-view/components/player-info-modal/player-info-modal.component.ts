@@ -3,7 +3,7 @@ import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {FormControl, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatButton} from "@angular/material/button";
-import {CreatePlayerDTO} from "../../../core/dtos/create-player.dto";
+import {CreatePlayerDTO} from "../../../../core/dtos/create-player.dto";
 
 @Component({
   selector: 'app-player-info-modal',
