@@ -1,0 +1,37 @@
+<div class="top-row">
+  @for (player of players$ | async; track player.id; let i = $index) {
+    @if (i % 2 == 0 && i != 6) {
+      <app-player-card [isMainPlayer]="mainPlayer?.id == player.id"
+                       [player]="player"></app-player-card>
+    }
+  }
+</div>
+
+<div class="middle-row">
+  <div class="left-col">
+    @for (player of players$ | async; track player.id; let i = $index) {
+      @if (i != 0 && i % 7 == 0) {
+        <app-player-card [isMainPlayer]="mainPlayer?.id == player.id"
+                         [player]="player"></app-player-card>
+      }
+    }
+  </div>
+  <div class="table"></div>
+  <div class="right-col">
+    @for (player of players$ | async; track player.id; let i = $index) {
+      @if (i != 0 && i % 6 == 0) {
+        <app-player-card [isMainPlayer]="mainPlayer?.id == player.id"
+                         [player]="player"></app-player-card>
+      }
+    }
+  </div>
+</div>
+
+<div class="bottom-row">
+  @for (player of players$ | async; track player.id; let i = $index) {
+    @if (i != 0 && i % 2 != 0 && i != 7) {
+      <app-player-card [isMainPlayer]="mainPlayer?.id == player.id"
+                       [player]="player"></app-player-card>
+    }
+  }
+</div>
